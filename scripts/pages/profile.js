@@ -32,7 +32,7 @@ async function getPhotographerProfile(photographerId) {
 
 async function displayData(photographer) {
     console.log("Photographes à afficher:", photographer);
-    const photographerSection = document.querySelector(".photographer_section");
+    const photographerSection = document.querySelector(".photographer_profile");
     const photographerModel = photographerTemplate(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     console.log("DOM généré:", userCardDOM);
@@ -44,6 +44,5 @@ async function init() {
     const photographer = await getPhotographerProfile(photographerId);
     await displayData(photographer);
 } 
-
 
     init();
