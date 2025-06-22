@@ -16,11 +16,11 @@ class imageMedia {
     constructor (data) {
         this._image = data.image;
         this._title = data.title;
-        this._id = data.id;
+        this._photographerId = data.photographerId;
     }
     getDOM () {
         const image = document.createElement("img");
-        image.setAttribute("src", `assets/media/${this._id}/${this._image}`);
+        image.setAttribute("src", `assets/media/${this._photographerId}/${this._image}`);
         image.setAttribute("alt", this._title);
         return image;
     }
@@ -31,15 +31,15 @@ class videoMedia {
     constructor(data) {
         this._video = data.video;
         this._title = data.title;
-        this._id = data.id;
+        this._photographerId = data.photographerId;
     }
     getDOM () {
-        const video = document.createElement("video")
-        image.setAttribute("src", `assets/media/${this._id}/${this._video}`);
-        video.setAttribute("controls", true);
-        video.setAttribute("title", this._title);
-        return video;
-    }
+    const video = document.createElement("video");
+    video.setAttribute("src", `assets/media/${this._photographerId}/${this._video}`);
+    video.setAttribute("controls", true);
+    video.setAttribute("title", this._title);
+    return video;
+}
 }
 
 
