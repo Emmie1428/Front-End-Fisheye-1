@@ -22,12 +22,32 @@ async function getPhotographerProfile(photographerId) {
 }
 
 async function displayData(photographer) {
-    console.log("Photographes à afficher:", photographer);
-    const photographerSection = document.querySelector(".photographer_profile");
+    console.log("Photographe à afficher:", photographer);
+    const photographerProfile = document.querySelector(".photographer_profile");
     const photographerModel = photographerTemplate(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     console.log("DOM généré:", userCardDOM);
-    photographerSection.appendChild(userCardDOM);
+   
+    const img = userCardDOM.querySelector(".imgProfile");
+    const name = userCardDOM.querySelector(".profileName");
+    const localisation = userCardDOM.querySelector(".localisation");
+    const tagline = userCardDOM.querySelector(".tagline");
+    const price = userCardDOM.querySelector(".price");
+
+    //Crétation div photographInfo pour manipuler le css
+    const textBlock = document.createElement ("div");
+    textBlock.classList.add("photographInfo");
+    textBlock.append(name, localisation, tagline)
+
+    //Création div priceBlock pour manipuler le css
+    const priceBlock = document.createElement("div");
+    priceBlock.classList.add("priceBlock");
+    priceBlock.append(price);
+
+    photographerProfile.appendChild(textBlock);
+    photographerProfile.appendChild(document.querySelector(".contact_button"));
+    photographerProfile.appendChild(img);
+    photographerProfile.appendChild(priceBlock);
 }
     
 async function init() {

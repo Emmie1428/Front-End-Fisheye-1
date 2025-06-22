@@ -17,14 +17,15 @@ function photographerTemplate(data) {
         link.href = `./profile.html?id=${id}`;
 
         //Création lien img et h2 pour index.html seulement
-        const img = document.createElement( 'img' );
-        img.setAttribute ("src", picture);
-        img.setAttribute ("alt", `Potrait de ${name}`);
+        const imgPhotographers = document.createElement( 'img' );
+        imgPhotographers.setAttribute ("src", picture);
+        imgPhotographers.setAttribute ("alt", `Potrait de ${name}`);
+        imgPhotographers.classList.add ("imgPhotographers");
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
-        link.appendChild(img);
+        link.appendChild(imgPhotographers);
         link.appendChild(h2);
 
         //Création img pour profitle.html seulement
@@ -50,14 +51,9 @@ function photographerTemplate(data) {
         pPrice.textContent = `${price}€/jour`;
         pPrice.classList.add("price");
     
-
-        if (isOnProfilePage()) {
-            article.appendChild(imgProfile);
-            article.appendChild(h1Profile);
-        } else {
-            article.appendChild(link);
-        }
-        
+        article.appendChild(link);
+        article.appendChild(imgProfile);
+        article.appendChild(h1Profile);
         article.appendChild(pLocalisation);
         article.appendChild(pTagline);
         article.appendChild(pPrice);
