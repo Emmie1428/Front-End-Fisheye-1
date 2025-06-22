@@ -21,15 +21,6 @@ async function getPhotographerProfile(photographerId) {
     }
 }
 
-//async function displayProfile(photographer) {
-   // const photographerProfile = document.querySelector(".photographe_profile");
-    //const profileModel = profileTemplate(photographer);
-    //const profileCardDOM = profileModel.getProfileCardDOM();
-    //console.log("DOM généré:", profileCardDOM);
-
-    //photographerProfile.appendChild(profileCardDOM);
-//}
-
 async function displayData(photographer) {
     console.log("Photographes à afficher:", photographer);
     const photographerSection = document.querySelector(".photographer_profile");
