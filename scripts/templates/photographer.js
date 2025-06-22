@@ -1,7 +1,3 @@
-function isOnProfilePage() {
-    return window.location.href.includes("profile.html");
-}
-
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 

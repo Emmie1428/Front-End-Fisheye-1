@@ -8,6 +8,7 @@ function getPhotographerId () {
     return id;
 }
 
+//Get infos du profile pour displayData
 async function getPhotographerProfile(photographerId) {
     try {
         const response = await fetch("./data/photographers.json");
@@ -21,6 +22,8 @@ async function getPhotographerProfile(photographerId) {
     }
 }
 
+
+//Affichage des infos du profile
 async function displayData(photographer) {
     console.log("Photographe à afficher:", photographer);
     const photographerProfile = document.querySelector(".photographer_profile");
@@ -50,10 +53,40 @@ async function displayData(photographer) {
     photographerProfile.appendChild(priceBlock);
 }
     
+
+//Get infos des médias pour displayMedia
+async function getPhotographerMedias(photographerId) {
+    try {
+        const response = await fetch("./data/photographers.json");
+        const data = await response.json();
+        const medias = data.media.filter (media => 
+            media.photographerId == photographerId );
+    return medias;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des médias:', error);
+    return [];
+    }
+}
+
+//Affichage des médias du photographe
+async function displayMedia(medias) {
+    const gallerySection = document.querySelector(".media_gallery");
+
+    medias.forEach(mediaData => {
+        const media = new MediaFactory(mediaData);
+        const mediaDOM = media.getDOM();
+        gallerySection.appendChild(mediaDOM); 
+    })
+}
+
+
 async function init() {
     const photographerId = getPhotographerId();
     const photographer = await getPhotographerProfile(photographerId);
+    const medias = await getPhotographerMedias(photographerId);
+
     await displayData(photographer);
+    await displayMedia(medias);
 } 
 
     init();
