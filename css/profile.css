@@ -89,6 +89,27 @@
     color: #000000;
 }
 
+.media_gallery {
+    margin: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 95px;
+}
+
+.photo,
+.video {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.media_gallery p {
+    color: #901C1C;
+    font-size: 1.25em;
+    margin: 10px 0;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;

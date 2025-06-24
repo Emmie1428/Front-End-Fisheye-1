@@ -19,10 +19,23 @@ class imageMedia {
         this._photographerId = data.photographerId;
     }
     getDOM () {
-        const image = document.createElement("img");
-        image.setAttribute("src", `assets/media/${this._photographerId}/${this._image}`);
-        image.setAttribute("alt", this._title);
-        return image;
+
+    const mediaCard = document.createElement("div");
+    mediaCard.classList.add("media-card");
+
+    const image = document.createElement("img");
+    image.setAttribute("src", `assets/media/${this._photographerId}/${this._image}`);
+    image.setAttribute("alt", this._title);
+    image.classList.add("photo");
+
+    const title = document.createElement("p");
+    title.textContent = this._title;
+    title.classList.add("cardTitle");
+
+    mediaCard.appendChild(image);
+    mediaCard.appendChild(title);
+    
+    return mediaCard;
     }
 }
 
@@ -34,12 +47,25 @@ class videoMedia {
         this._photographerId = data.photographerId;
     }
     getDOM () {
+
+    const mediaCard = document.createElement("div");
+    mediaCard.classList.add("media-card");
+
     const video = document.createElement("video");
     video.setAttribute("src", `assets/media/${this._photographerId}/${this._video}`);
     video.setAttribute("controls", true);
     video.setAttribute("title", this._title);
-    return video;
-}
+    video.classList.add("video");
+
+    const title = document.createElement("p");
+    title.textContent = this._title;
+    title.classList.add("cardTitle");
+
+    mediaCard.appendChild(video);
+    mediaCard.appendChild(title);
+
+    return mediaCard;
+    }
 }
 
 
