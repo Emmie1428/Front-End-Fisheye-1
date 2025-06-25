@@ -24,7 +24,7 @@ function photographerTemplate(data) {
         link.appendChild(imgPhotographers);
         link.appendChild(h2);
 
-        //Création img pour profitle.html seulement
+        //Création img pour profile.html seulement
         const imgProfile = document.createElement('img');
         imgProfile.setAttribute ("src", picture);
         imgProfile.setAttribute ("alt", `Potrait de ${name}`);

@@ -26,6 +26,8 @@ class imageMedia {
     const image = document.createElement("img");
     image.setAttribute("src", `assets/media/${this._photographerId}/${this._image}`);
     image.setAttribute("alt", this._title);
+    image.setAttribute("title", this._title);
+    image.setAttribute("tabindex", "0");
     image.classList.add("photo");
 
     const title = document.createElement("p");
@@ -54,6 +56,7 @@ class videoMedia {
     const video = document.createElement("video");
     video.setAttribute("src", `assets/media/${this._photographerId}/${this._video}`);
     video.setAttribute("controls", true);
+    video.setAttribute("aria-label", this._title);
     video.setAttribute("title", this._title);
     video.classList.add("video");
 
