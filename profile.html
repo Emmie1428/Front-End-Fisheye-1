@@ -30,16 +30,21 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
+				<form method="get" action ="">
+					<div role="document">
+						<label for="prenom">Prénom</label>
+						<input type="text" name="prenom" id="prenom" />
+            <label for="nom">Nom</label>
+						<input  type="type" name="nom" id="nom"/>
+            <label for="email">Email</label>
+						<input type="email" name="email" id="email"/>
+            <label for="message">Votre message</label>
+						<textarea type="text" name="message" id="message"></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="send_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="scripts/templates/profile.js"></script>
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/models/mediaFactory.js"></script>
     <script src="scripts/pages/profile.js"></script>
