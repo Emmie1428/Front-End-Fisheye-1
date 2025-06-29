@@ -8,7 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
-  <body>
+  <body id="body">
+    <div id="modal_opacity"></div>
     <header>
       <a href="index.html">
         <img src="assets/media/logo.png" class="logo" alt="Fisheye home page"/>
@@ -24,25 +25,25 @@
       <section class="media_gallery">
       </section>
     </main>
-    <div id="modal_opacity"></div>
+    
     <div id="contact_modal">
-			<div class="modal">
+			<div role="dialog" aria-modal="true" class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()"/>
         </header>
 				<form method="get" action ="">
 					<div role="document">
 						<label for="prenom">Prénom</label>
-						<input type="text" name="prenom" id="prenom" />
+						<input type="text" name="prenom" id="first-focus" class="focusable"/>
             <label for="nom">Nom</label>
-						<input  type="type" name="nom" id="nom"/>
+						<input  type="type" name="nom" id="nom" class="focusable"/>
             <label for="email">Email</label>
-						<input type="email" name="email" id="email"/>
+						<input type="email" name="email" id="email" class="focusable"/>
             <label for="message">Votre message</label>
-						<textarea type="text" name="message" id="message"></textarea>
+						<textarea type="text" name="message" id="message" class="focusable"></textarea>
 					</div>
-          <button class="send_button">Envoyer</button>
+          <button type="button" class="send_button focusable" id="last-focus">Envoyer</button>
 				</form>
 			</div>
 		</div>

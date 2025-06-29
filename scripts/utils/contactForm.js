@@ -1,58 +1,75 @@
+let focusElements = [];
 let firstElement = null;
 let lastElement = null;
 
 function displayModal() {
     const modal = document.getElementById("contact_modal");
-	const opacity = document.getElementById("modal_opacity");
+    const opacity = document.getElementById("modal_opacity");
 
     modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
     opacity.style.display = "block";
 
-    //Retirer le focus de l'arrière-plan
+    // Empêcher le focus sur main et header
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "true");
-    
-    const focusSeletors = "input, textarea, button";
-    const  focusElements = modal.querySelectorAll (focusSeletors);
-    
-    //Pour coincer le focus dans la modal
-    firstElement = focusElements[0];
-    lastElement = focusElements[focusElements.length -1];
+    main.setAttribute("inert", "");
 
-    if (firstElement) firstElement.focus(); 
+    const header = document.querySelector("header");
+    header.setAttribute("aria-hidden", "true");
+    header.setAttribute("inert", "");
+
+    // Sélection deses éléments focusables 
+    focusElements = modal.querySelectorAll(".focusable");
+    firstElement = focusElements[0];
+    lastElement = focusElements[focusElements.length - 1];
+
+    if (firstElement) firstElement.focus();
 }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     const opacity = document.getElementById("modal_opacity");
+
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
     opacity.style.display = "none";
 
-    //Retirer le focus du formulaire
+    // Focus de retour sur main et header
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "false");
+    main.removeAttribute("inert");
+
+    const header = document.querySelector("header");
+    header.setAttribute("aria-hidden", "false");
+    header.removeAttribute("inert");
 }
 
-//Permet de manipuler la modal avec tab et escape
+// Gestion de tab et escape
 document.addEventListener("keydown", function (event) {
-        const modal = document.getElementById("contact_modal")
-        const visible = modal && modal.style.display === "block";
+    const modal = document.getElementById("contact_modal");
+    const visible = modal && modal.style.display === "block";
 
-        if (!visible) return; 
-        
-        if (event.key === "Tab") {
-            if (event.shiftKey && document.activeElement === firstElement) {
-            event.preventDefault(); 
-            lastElement.focus();  
-        } else if (!event.shiftKey && document.activeElement === lastElement) {
-            event.preventDefault(); 
-            firstElement.focus();   
-        } 
-    }
-        
-        if(event.key ==="Escape") {
-        closeModal();
+    if (!visible) return;
+
+    // Trap du focus dans la modale
+    if (event.key === "Tab") {
+        if (event.shiftKey) {
+
+            if (document.activeElement === firstElement) {
+                event.preventDefault();
+                
+            }
+        } else {
+            if (document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
         }
-    });
+    }
+
+    // Fermer la modale
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
