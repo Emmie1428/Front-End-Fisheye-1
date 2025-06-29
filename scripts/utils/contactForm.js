@@ -13,11 +13,11 @@ function displayModal() {
     // Empêcher le focus sur main et header
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "true");
-    main.setAttribute("inert", "");
+    
 
     const header = document.querySelector("header");
     header.setAttribute("aria-hidden", "true");
-    header.setAttribute("inert", "");
+    
 
     // Sélection deses éléments focusables 
     focusElements = modal.querySelectorAll(".focusable");
@@ -38,11 +38,11 @@ function closeModal() {
     // Focus de retour sur main et header
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "false");
-    main.removeAttribute("inert");
+    
 
     const header = document.querySelector("header");
     header.setAttribute("aria-hidden", "false");
-    header.removeAttribute("inert");
+    
 }
 
 // Gestion de tab et escape
@@ -72,4 +72,25 @@ document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeModal();
     }
+
+    if (event.key === "Enter") {
+        SubmitEvent();
+    }
+});
+
+//Console.log de l'envoie de formulaire
+const form = document.getElementById("contact_form");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+
+    const prenom = form.elements["prenom"].value;
+    const nom = form.elements["nom"].value;
+    const email = form.elements["email"].value;
+    const message = form.elements["message"].value;
+
+    console.log("Prénom: ", prenom);
+    console.log("Nom: ", nom);
+    console.log("Email: ", email);
+    console.log("Message: ", message);
 });
