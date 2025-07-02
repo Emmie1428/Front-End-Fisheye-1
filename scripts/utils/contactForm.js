@@ -72,10 +72,6 @@ document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeModal();
     }
-
-    if (event.key === "Enter") {
-        SubmitEvent();
-    }
 });
 
 //Console.log de l'envoie de formulaire

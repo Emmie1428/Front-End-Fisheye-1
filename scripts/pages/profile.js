@@ -1,4 +1,4 @@
-//Mettre le code JavaScript lié à la page photographer.html
+//Get id du photographe pour cibler leur profile
 function getPhotographerId () {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -36,6 +36,7 @@ async function displayData(photographer) {
     const localisation = userCardDOM.querySelector(".localisation");
     const tagline = userCardDOM.querySelector(".tagline");
     const price = userCardDOM.querySelector(".price");
+    const totalLikes = userCardDOM.querySelector(".totalLikes");
 
     //Crétation div photographInfo pour manipuler le css
     const textBlock = document.createElement ("div");
@@ -45,7 +46,9 @@ async function displayData(photographer) {
     //Création div priceBlock pour manipuler le css
     const priceBlock = document.createElement("div");
     priceBlock.classList.add("priceBlock");
+    priceBlock.append(totalLikes);
     priceBlock.append(price);
+
 
     photographerProfile.appendChild(textBlock);
     photographerProfile.appendChild(document.querySelector(".contact_button"));
@@ -87,6 +90,7 @@ async function init() {
 
     await displayData(photographer);
     await displayMedia(medias);
+    totalLikes();
 } 
 
     init();

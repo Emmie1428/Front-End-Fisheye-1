@@ -65,7 +65,17 @@
     right: 24px;
     text-align: end;
     padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.totalLikes p {
+    margin-bottom: 4px;
+}
+.priceBlock svg {
+   width: 21px;
+   height: 24px;
+   translate: 0% 9%;
 }
 
 .contact_button, 
@@ -117,10 +127,23 @@
     border-radius: 5px;
 }
 
+.like-container {
+    height: 51px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .media_gallery p {
     color: #901C1C;
     font-size: 1.25em;
-    margin: 10px 0;
+    margin: 0;
+}
+
+.media-card svg {
+    fill: #901C1C; 
+    height: 24px;
+    cursor: pointer;
 }
 
 header {
@@ -129,7 +152,7 @@ header {
 }
 #main {
     position: absolute;
-    z-index: 1
+    z-index: 1;
 }
 
 .modal {
