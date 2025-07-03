@@ -68,6 +68,10 @@ h1 {
     text-decoration: none;
 }
 
+.photographer_section .totalLikes {
+    display: none;
+}
+
 .photographer_section article p {
     margin: 0;
     font-weight: normal;

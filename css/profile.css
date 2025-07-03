@@ -130,20 +130,27 @@
 .like-container {
     height: 51px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .media_gallery p {
     color: #901C1C;
-    font-size: 1.25em;
+    font-size: 1.5em;
     margin: 0;
+}
+
+.likeBlock {
+    display: flex;
+    align-items: center;
 }
 
 .media-card svg {
     fill: #901C1C; 
     height: 24px;
     cursor: pointer;
+    margin-left: 4px;
+    translate: 0% 9%;
 }
 
 header {

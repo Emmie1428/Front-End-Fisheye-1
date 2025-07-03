@@ -82,7 +82,6 @@ async function displayMedia(medias) {
     })
 }
 
-
 async function init() {
     const photographerId = getPhotographerId();
     const photographer = await getPhotographerProfile(photographerId);

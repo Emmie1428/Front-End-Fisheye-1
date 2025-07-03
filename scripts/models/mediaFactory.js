@@ -31,12 +31,17 @@ class imageMedia {
     image.setAttribute("tabindex", "0");
     image.classList.add("photo");
 
+    //Création div info sous les médias
     const likeContainer = document.createElement ("div");
     likeContainer.classList.add("like-container")
 
     const title = document.createElement("p");
     title.textContent = this._title;
     title.classList.add("cardTitle");
+
+    //Création div pour regrouper le nb de like et le coeur
+    const likeBlock = document.createElement("div");
+    likeBlock.classList.add("likeBlock");
 
     const likes = document.createElement("p");
     likes.textContent = this._likes;
@@ -50,15 +55,21 @@ class imageMedia {
     //Incrémentation 1 like au 1er click du coeur et -1 au 2em click
     let liked = false;
         heart.addEventListener("click", () => {
-            this._likes += liked ? -1 : 1;
-            liked = !liked;
-            likes.textContent = this._likes;
-            totalLikes();
-        });
+            if (liked) {
+                this._likes -= 1;
+            } else {
+                this._likes += 1;
+            }
+        liked = !liked;
+        likes.textContent = this._likes;
+        totalLikes();
+    });
+
+    likeBlock.appendChild(likes);
+    likeBlock.appendChild(heart);
 
     likeContainer.appendChild(title);
-    likeContainer.appendChild(likes);
-    likeContainer.appendChild(heart);
+    likeContainer.appendChild(likeBlock);
 
     mediaCard.appendChild(image);
     mediaCard.appendChild(likeContainer);
@@ -88,12 +99,17 @@ class videoMedia {
     video.setAttribute("title", this._title);
     video.classList.add("video");
 
+    //Création div info sous les médias
     const likeContainer = document.createElement ("div");
     likeContainer.classList.add("like-container")
 
     const title = document.createElement("p");
     title.textContent = this._title;
     title.classList.add("cardTitle");
+
+    //Création div pour regrouper le nb de like et le coeur
+    const likeBlock = document.createElement("div");
+    likeBlock.classList.add("likeBlock");
 
     const likes = document.createElement("p");
     likes.textContent = this._likes;
@@ -107,15 +123,21 @@ class videoMedia {
     //Incrémentation 1 like au 1er click du coeur et -1 au 2em click
     let liked = false;
         heart.addEventListener("click", () => {
-            this._likes += liked ? -1 : 1;
-            liked = !liked;
-            likes.textContent = this._likes;
-            totalLikes();
-        });
+            if (liked) {
+                this._likes -= 1;
+            } else {
+                this._likes += 1;
+            }
+        liked = !liked;
+        likes.textContent = this._likes;
+        totalLikes();
+    });
+
+    likeBlock.appendChild(likes);
+    likeBlock.appendChild(heart);
 
     likeContainer.appendChild(title);
-    likeContainer.appendChild(likes);
-    likeContainer.appendChild(heart);
+    likeContainer.appendChild(likeBlock);
 
     mediaCard.appendChild(video);
     mediaCard.appendChild(likeContainer);
