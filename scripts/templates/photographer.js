@@ -1,3 +1,5 @@
+let name = [];
+
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id, likes } = data;
 

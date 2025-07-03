@@ -19,18 +19,27 @@
       <div class="photographer_profile">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <div class="listbox">
-        <p>Tirer par</p>
+      <form method="get" action="" class="listbox">
+        <p>
+          <label for="tri" >Tirer par</label>
+          <select name="tri" id="tri">
+              <option value="popularite">Popularité</option>
+              <option value="date">Date</option>
+              <option value="Titre">Titre</option>
+          </select>
+        </p>
       </div>
       <section class="media_gallery">
       </section>
     </main>
-    
     <div id="contact_modal">
 			<div role="dialog" aria-modal="true" class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()"/>
+          <div class="modalHeaderText">
+            <h2>Contactez-moi</h2>
+            <p class="nameContactForm" aria-label="Nom du photographe"></p>
+          </div>
+            <img src="assets/icons/close.svg" onclick="closeModal()"/>
         </header>
 				<form method="get" action ="" id="contact_form">
 					<div role="document">

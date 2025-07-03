@@ -10,14 +10,15 @@ function displayModal() {
     modal.setAttribute("aria-hidden", "false");
     opacity.style.display = "block";
 
+    //Empêche le scroll en arrière-plan
+    document.body.style.overflow = "hidden";
+
     // Empêcher le focus sur main et header
     const main = document.getElementById("main");
     main.setAttribute("aria-hidden", "true");
-    
 
     const header = document.querySelector("header");
     header.setAttribute("aria-hidden", "true");
-    
 
     // Sélection deses éléments focusables 
     focusElements = modal.querySelectorAll(".focusable");
@@ -34,6 +35,9 @@ function closeModal() {
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
     opacity.style.display = "none";
+
+    //Retour du scroll de l'arrière-plan
+    document.body.style.overflow = "";
 
     // Focus de retour sur main et header
     const main = document.getElementById("main");
@@ -90,3 +94,9 @@ form.addEventListener("submit", function (event) {
     console.log("Email: ", email);
     console.log("Message: ", message);
 });
+
+//Affichage du nom en dessous de Contactez-moi
+function setNameContactForm (photographerName){
+    const name = document.querySelector(".nameContactForm");
+    name.textContent = photographerName;
+}

@@ -41,14 +41,13 @@ async function displayData(photographer) {
     //Crétation div photographInfo pour manipuler le css
     const textBlock = document.createElement ("div");
     textBlock.classList.add("photographInfo");
-    textBlock.append(name, localisation, tagline)
+    textBlock.append(name, localisation, tagline);
 
     //Création div priceBlock pour manipuler le css
     const priceBlock = document.createElement("div");
     priceBlock.classList.add("priceBlock");
     priceBlock.append(totalLikes);
     priceBlock.append(price);
-
 
     photographerProfile.appendChild(textBlock);
     photographerProfile.appendChild(document.querySelector(".contact_button"));
@@ -90,6 +89,8 @@ async function init() {
     await displayData(photographer);
     await displayMedia(medias);
     totalLikes();
+
+    setNameContactForm(photographer.name);
 } 
 
     init();

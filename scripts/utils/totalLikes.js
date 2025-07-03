@@ -10,4 +10,3 @@ function totalLikes() {
     }
 }
 
-window.totalLikes = totalLikes;
