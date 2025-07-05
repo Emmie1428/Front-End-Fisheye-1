@@ -19,15 +19,15 @@
       <div class="photographer_profile">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <form method="get" action="" class="listbox">
-        <p>
-          <label for="tri" >Tirer par</label>
-          <select name="tri" id="tri">
-              <option value="popularite">Popularité</option>
-              <option value="date">Date</option>
-              <option value="Titre">Titre</option>
-          </select>
-        </p>
+      <div class="listbox">
+        <label for="tri" >Tirer par</label>
+        <select name="tri" id="tri" aria-describedby="triDescription">
+            <option value="popularite">Popularité</option>
+            <option value="date">Date</option>
+            <option value="titre">Titre</option>
+        </select>
+        <p id="triDescription" class="sr-only">Sélectionnez un critère de tri pour l'affichage des médias</p>
+        <p id="triStatus" class="sr-only" aria-live="polite"></p>
       </div>
       <section class="media_gallery">
       </section>
@@ -44,22 +44,23 @@
 				<form method="get" action ="" id="contact_form">
 					<div role="document">
 						<label for="prenom">Prénom</label>
-						<input type="text" name="prenom" id="first-focus" class="focusable"/>
+						<input type="text" name="prenom" id="first-focus" class="focusable" value="Prénom"/>
             <label for="nom">Nom</label>
-						<input  type="type" name="nom" id="nom" class="focusable"/>
+						<input  type="type" name="nom" id="nom" class="focusable" value="Nom"/>
             <label for="email">Email</label>
-						<input type="email" name="email" id="email" class="focusable"/>
+						<input type="email" name="email" id="email" class="focusable" value="Email"/>
             <label for="message">Votre message</label>
-						<textarea type="text" name="message" id="message" class="focusable"></textarea>
+						<textarea type="text" name="message" id="message" class="focusable" >Tapez votre message ici</textarea>
 					</div>
           <button type="submit" class="send_button focusable" id="last-focus">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="scripts/utils/totalLikes.js"></script> <!-- d'abord -->
+<script src="scripts/utils/totalLikes.js"></script> 
+<script src="scripts/utils/tri.js"></script>
 <script src="scripts/templates/photographer.js"></script>
 <script src="scripts/models/mediaFactory.js"></script>
-<script src="scripts/pages/profile.js"></script> <!-- ensuite -->
+<script src="scripts/pages/profile.js"></script> 
 <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

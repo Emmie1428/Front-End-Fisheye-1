@@ -1,3 +1,5 @@
+let medias = [];
+
 //Get id du photographe pour cibler leur profile
 function getPhotographerId () {
     const queryString = window.location.search;
@@ -84,10 +86,12 @@ async function displayMedia(medias) {
 async function init() {
     const photographerId = getPhotographerId();
     const photographer = await getPhotographerProfile(photographerId);
-    const medias = await getPhotographerMedias(photographerId);
+    medias = await getPhotographerMedias(photographerId);
+    
 
-    await displayData(photographer);
-    await displayMedia(medias);
+    await displayData(photographer); 
+    triPopularite(medias);
+    displayMedia(medias);
     totalLikes();
 
     setNameContactForm(photographer.name);

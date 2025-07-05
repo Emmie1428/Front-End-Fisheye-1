@@ -2,7 +2,6 @@
     display: none;
 }
 
-
 .photographer_profile {
     background-color: #FAFAFA;
     height: 300px;
@@ -239,6 +238,11 @@ header {
     color: #312E2E;
     font-size: 32px;
     font-family: "DM Sans", sans-serif;
+}
+
+.modal input,
+#message {
+    color: rgba(0, 0, 0, .2);
 }
 
 .modal div {

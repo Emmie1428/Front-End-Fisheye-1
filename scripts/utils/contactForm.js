@@ -81,19 +81,21 @@ document.addEventListener("keydown", function (event) {
 //Console.log de l'envoie de formulaire
 const form = document.getElementById("contact_form");
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault(); 
+if (form) {
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); 
 
-    const prenom = form.elements["prenom"].value;
-    const nom = form.elements["nom"].value;
-    const email = form.elements["email"].value;
-    const message = form.elements["message"].value;
+        const prenom = form.elements["prenom"].value;
+        const nom = form.elements["nom"].value;
+        const email = form.elements["email"].value;
+        const message = form.elements["message"].value;
 
-    console.log("Prénom: ", prenom);
-    console.log("Nom: ", nom);
-    console.log("Email: ", email);
-    console.log("Message: ", message);
-});
+        console.log("Prénom: ", prenom);
+        console.log("Nom: ", nom);
+        console.log("Email: ", email);
+        console.log("Message: ", message);
+    });
+}
 
 //Affichage du nom en dessous de Contactez-moi
 function setNameContactForm (photographerName){

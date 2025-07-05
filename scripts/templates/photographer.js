@@ -1,7 +1,7 @@
 let name = [];
 
 function photographerTemplate(data) {
-    const { name, portrait, city, country, tagline, price, id, likes } = data;
+    const { name, portrait, city, country, tagline, price, id, likes, date, title } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -75,6 +75,6 @@ function photographerTemplate(data) {
         return article;
     }
 
-    return { name, portrait, city, country, tagline, price, id, getUserCardDOM }
+    return { name, portrait, city, country, tagline, price, id, date, title, getUserCardDOM }
 }
 

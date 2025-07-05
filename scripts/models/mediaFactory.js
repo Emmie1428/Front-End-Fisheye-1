@@ -145,8 +145,3 @@ class videoMedia {
     return mediaCard;
     }
 }
-
-
-window.MediaFactory = MediaFactory;
-window.imageMedia = imageMedia;
-window.videoMedia = videoMedia;

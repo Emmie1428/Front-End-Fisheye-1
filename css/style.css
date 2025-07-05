@@ -1,5 +1,9 @@
 @import url("profile.css");
 
+.sr-only {
+    visibility: hidden;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
