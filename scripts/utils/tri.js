@@ -1,29 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const tri = document.getElementById("tri");
-    tri.value = "popularite";
+    const listbox = document.querySelector(".listbox");
+    const triOptions = document.querySelector(".options");
+    const menuDown = document.getElementById("menu-down");
+    const menuUp = document.getElementById("menu-up");
+    
+    //sr-only description du tri
     const triStatus = document.getElementById("triStatus");
     triStatus.textContent = "Tri effectué par popularité";
-    
+    triOptions.dataset.value = "popularite";
+   
 
-    tri.addEventListener("change", (event) => {
-        const value = event.target.value.toLowerCase();
-
-        if (value === "popularite") {
-            triPopularite(medias);
-        } else if (value === "date") {
-            triDate(medias);
-        } else if (value === "titre") {
-            triTitle(medias);
+    //Ouvre le menu déroulant au click
+    triOptions.addEventListener("click", () => {
+        const isHidden = options.classList.contains("hidden");
+        
+        triOptions.setAttribute("aria-expanded", "false");
+        if (isHidden) {
+            menuDown.style.display = "none";
+            menuUp.style.display = "flex";
+        } else {
+            menuDown.style.display = "flex";
+            menuUp.style.display = "none";
         }
+    });
+        
+    listbox.querySelectorAll("li").forEach(option => {
+        option.addEventListener("click", () => {
+            const value = option.dataset.value;
+                if (value === "popularite") {
+                    triPopularite(medias);
+                } else if (value === "date") {
+                    triDate(medias);
+                } else if (value === "titre") {
+                    triTitle(medias);
+                }
 
-        const sortedMedia = document.querySelector(".media_gallery");
-        sortedMedia.innerHTML = "";
+        document.querySelector(".media_gallery").innerHTML = "";
         displayMedia(medias);
         totalLikes();
 
-        triStatus.textContent = `Tri effectué par ${value}`;
+        document.querySelector(".triValue").textContent = option.textContent;
+        triOptions.dataset.value = value;
+        triStatus.textContent = `Tri effectué par ${option.textContent}`;
+    
+        //Refermer le menu déroulant
+        options.classList.add("hidden");
+        triOptions.setAttribute("aria-expanded", "false");
+        menuDown.style.display = "flex";
+        menuUp.style.display = "none";
+        });
     });
 });
+
 
 //Tri médias selon le nombre de likes
 function triPopularite(medias) { 

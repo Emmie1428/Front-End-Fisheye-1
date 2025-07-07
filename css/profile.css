@@ -1,7 +1,60 @@
+/*sr-only*/
+.hidden {
+    display: none;
+}
+
 #contact_modal {
     display: none;
 }
 
+/*Style positionnement  de base html*/
+header {
+    position: relative;
+    z-index: 1;
+}
+#main {
+    position: absolute;
+    z-index: 1;
+}
+
+/*Style des différents bouton*/
+.contact_button, 
+.send_button {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.contact_button {
+    grid-column: 2;
+    place-self: center;
+}
+
+.contact_button:hover, 
+.contact_button:focus {
+    background-color: #DB8876;
+    color: #000000;
+}
+
+.send_button {
+    margin: 26px 0;
+    padding: 0;
+    place-self: start;
+}
+
+.send_button p {
+    place-self: center;
+}
+
+/*Style du profil du photographe*/
 .photographer_profile {
     background-color: #FAFAFA;
     height: 300px;
@@ -52,6 +105,7 @@
     margin-right: 50px;
 }
 
+/*Style priceBlok et totalLikes*/
 .priceBlock {
     color: #000000;
     font-size: 1.5em;
@@ -66,6 +120,7 @@
     padding: 0 30px;
     display: flex;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .totalLikes p {
@@ -77,51 +132,9 @@
    translate: 0% 9%;
 }
 
-.contact_button, 
-.send_button,
-#tri {
-    font-size: 1.25em;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.contact_button {
-    grid-column: 2;
-    place-self: center;
-}
-
-.contact_button:hover, 
-.contact_button:focus {
-    background-color: #DB8876;
-    color: #000000;
-}
-
-.send_button {
-    margin: 26px 0;
-    padding: 0;
-    place-self: start;
-}
-
-.send_button p {
-    place-self: center;
-}
-
-.listBox label {
-    margin-left: 100px;
-    font-size: 1.125em;
-    font-weight: bold;
-}
-
+/*Style gallerie des médias*/
 .media_gallery {
-    margin: 100px;
+    margin: 50px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 95px;
@@ -161,15 +174,7 @@
     translate: 0% 9%;
 }
 
-header {
-    position: relative;
-    z-index: 1;
-}
-#main {
-    position: absolute;
-    z-index: 1;
-}
-
+/*Style de la modal de contact*/
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -262,4 +267,66 @@ header {
 
 .modal textarea {
     height: 150px;
+}
+
+
+/*Style du tri*/
+.listbox {
+    position: relative;
+    display: flex;
+    padding: 15px 0 0 100px;
+}
+
+#listboxTitle {
+    font-size: 1.125em;
+    font-weight: bold;
+    margin-right: 23px;
+}
+
+.listbox svg{
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+#menu-down {
+    display: flex;
+}
+
+#menu-up {
+    display: none;
+}
+
+.options {
+    position: absolute;
+    left: 180px;
+    border-radius: 5px;
+    background-color: #901C1C;
+    color: white;
+    width: 170px;
+    list-style: none;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.options li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    place-content: center;
+    padding: 15px;
+    margin: 0 10px;
+    
+    
+}
+
+.options li:hover {
+  color: black;  
 }

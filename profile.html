@@ -20,13 +20,20 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="listbox">
-        <label for="tri" >Tirer par</label>
-        <select name="tri" id="tri" aria-describedby="triDescription">
-            <option value="popularite">Popularité</option>
-            <option value="date">Date</option>
-            <option value="titre">Titre</option>
-        </select>
-        <p id="triDescription" class="sr-only">Sélectionnez un critère de tri pour l'affichage des médias</p>
+        <h3 id="listboxTitle">Trier par</h3>
+        <ul aria-describedby="triDescription" class="options" role="listbox">
+          <li role="option" data-value="popularite" aria-selected="true" tabindex="0">Popularité
+            <svg id="menu-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+            </svg>
+            <svg id="menu-up" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+            </svg>
+          </li>
+          <li role="option" data-value="date" tabindex="0">Date</li>
+          <li role="option" data-value="titre" tabindex="0">Titre</li>
+        </ul>
+        <p id="triDescription" class="sr-only">Sélectionnez un critère de tri</p>
         <p id="triStatus" class="sr-only" aria-live="polite"></p>
       </div>
       <section class="media_gallery">
