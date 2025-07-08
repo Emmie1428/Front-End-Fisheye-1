@@ -1,56 +1,111 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const listbox = document.querySelector(".listbox");
-    const triOptions = document.querySelector(".options");
+    const triList = document.querySelector(".options");
     const menuDown = document.getElementById("menu-down");
     const menuUp = document.getElementById("menu-up");
     
+    const options = triList.querySelectorAll("li");
+    const currentOption = options[0];
+    const triValue = triList.querySelector(".triValue");
+    const otherOptions = [...options].slice(1);
+
     //sr-only description du tri
     const triStatus = document.getElementById("triStatus");
     triStatus.textContent = "Tri effectué par popularité";
-    triOptions.dataset.value = "popularite";
    
+    otherOptions.forEach(option => option.classList.add("hidden"));
+    menuDown.classList.remove("hidden");
 
-    //Ouvre le menu déroulant au click
-    triOptions.addEventListener("click", () => {
-        const isHidden = options.classList.contains("hidden");
+    currentOption.addEventListener("click", () => {
+        const isOpen = !otherOptions[0].classList.contains("hidden");
         
-        triOptions.setAttribute("aria-expanded", "false");
-        if (isHidden) {
-            menuDown.style.display = "none";
-            menuUp.style.display = "flex";
-        } else {
-            menuDown.style.display = "flex";
-            menuUp.style.display = "none";
-        }
-    });
-        
-    listbox.querySelectorAll("li").forEach(option => {
+        otherOptions.forEach(option => {
+            if (isOpen) {
+                option.classList.add("hidden");
+            } else {
+                option.classList.remove("hidden");
+            }
+        });
+
+        menuDown.classList.toggle("hidden", !isOpen);
+        menuUp.classList.toggle("hidden", isOpen);
+
+        currentOption.setAttribute("aria-expanded", String(!isOpen));
+    });     
+
+    currentOption.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault(); 
+        const isOpen = !otherOptions[0].classList.contains("hidden");
+
+        otherOptions.forEach(option => {
+            if (isOpen) {
+                option.classList.add("hidden");
+            } else {
+                option.classList.remove("hidden");
+            }
+        });
+
+        menuDown.classList.toggle("hidden", !isOpen);
+        menuUp.classList.toggle("hidden", isOpen);
+
+        currentOption.setAttribute("aria-expanded", String(!isOpen));
+    }
+});
+
+    otherOptions.forEach(option => {
         option.addEventListener("click", () => {
-            const value = option.dataset.value;
-                if (value === "popularite") {
-                    triPopularite(medias);
-                } else if (value === "date") {
-                    triDate(medias);
-                } else if (value === "titre") {
-                    triTitle(medias);
+        const selectedText = option.textContent;
+        const selectedValue = option.dataset.value;
+            if (selectedValue === "popularite") {
+                triPopularite(medias);
+            } else if (selectedValue === "date") {
+                triDate(medias);
+            } else if (selectedValue === "titre") {
+                triTitle(medias);
                 }
 
         document.querySelector(".media_gallery").innerHTML = "";
         displayMedia(medias);
         totalLikes();
 
-        document.querySelector(".triValue").textContent = option.textContent;
-        triOptions.dataset.value = value;
-        triStatus.textContent = `Tri effectué par ${option.textContent}`;
-    
-        //Refermer le menu déroulant
-        options.classList.add("hidden");
-        triOptions.setAttribute("aria-expanded", "false");
-        menuDown.style.display = "flex";
-        menuUp.style.display = "none";
+        const oldText = triValue.textContent;
+        const oldValue = currentOption.dataset.value;
+
+        triValue.textContent = option.textContent;
+        currentOption.dataset.value = selectedValue;
+        triStatus.textContent = `Tri effectué par ${selectedText}`;
+
+        option.textContent = oldText;
+        option.dataset.value = oldValue;
+
+        otherOptions.forEach(opt => opt.classList.add("hidden"));
+        menuDown.classList.remove("hidden");
+        menuUp.classList.add("hidden");
+        });
+
+        //Sélectionne une option avec la touche Enter
+        option.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            option.click(); 
+            }
         });
     });
+
+    triList.addEventListener("focusout", (event) => {
+         setTimeout(() => {
+        const focusedElement = document.activeElement;
+        const inList = triList.contains(focusedElement);
+            if (!inList) {
+                otherOptions.forEach(option => option.classList.add("hidden"));
+                menuDown.classList.remove("hidden");
+                menuUp.classList.add("hidden");
+                currentOption.setAttribute("aria-expanded", "false");
+            }
+        }, 0);
+    });
 });
+
 
 
 //Tri médias selon le nombre de likes

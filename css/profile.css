@@ -1,6 +1,6 @@
 /*sr-only*/
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #contact_modal {
@@ -179,6 +179,7 @@ header {
     border-radius: 5px;
     background-color: #DB8876;
     width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -187,7 +188,9 @@ header {
     margin: auto;
     max-width: 599px;
     max-height: 900px;
+    overflow-x: hidden;
     overflow-y: scroll;
+    scrollbar-color: #DB8876;
 }
 
 #contact_modal {
@@ -213,6 +216,7 @@ header {
     justify-content: space-between;
     z-index: 999;
     margin-bottom: 15px;
+    padding: 20px 0 0;
 }
 
 .modal header img {
@@ -284,17 +288,9 @@ header {
 }
 
 .listbox svg{
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     fill: white;
-}
-
-#menu-down {
-    display: flex;
-}
-
-#menu-up {
-    display: none;
 }
 
 .options {
@@ -316,17 +312,23 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 1.25em;
+    font-size: 1.125em;
     font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    place-content: center;
-    padding: 15px;
-    margin: 0 10px;
-    
-    
+    padding: 15px 5px;
+    margin: 0 10px;         
+}
+
+.options li:focus {
+    margin: 0;
+    padding: 15px 15px;
+}
+
+#borders {
+ border-bottom: 1px solid #ccc;
+ border-top: 1px solid #ccc;
 }
 
 .options li:hover {
   color: black;  
 }
+

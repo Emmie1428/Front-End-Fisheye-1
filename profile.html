@@ -21,17 +21,18 @@
       </div>
       <div class="listbox">
         <h3 id="listboxTitle">Trier par</h3>
-        <ul aria-describedby="triDescription" class="options" role="listbox">
-          <li role="option" data-value="popularite" aria-selected="true" tabindex="0">Popularité
-            <svg id="menu-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <ul aria-describedby="triDescription" class="options" role="listbox" >
+          <li role="option" data-value="popularite" aria-selected="true" tabindex="0">
+            <span class="triValue">Popularité</span>
+            <svg id="menu-down" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
             </svg>
             <svg id="menu-up" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+              <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
             </svg>
           </li>
-          <li role="option" data-value="date" tabindex="0">Date</li>
-          <li role="option" data-value="titre" tabindex="0">Titre</li>
+          <li role="option" data-value="date" class="hidden" id="borders" tabindex="0">Date</li>
+          <li role="option" data-value="titre" class="hidden" tabindex="0">Titre</li>
         </ul>
         <p id="triDescription" class="sr-only">Sélectionnez un critère de tri</p>
         <p id="triStatus" class="sr-only" aria-live="polite"></p>
