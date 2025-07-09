@@ -3,12 +3,13 @@ let firstElement = null;
 let lastElement = null;
 
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
+    const modal = document.querySelector(".modal");
     const opacity = document.getElementById("modal_opacity");
 
-    modal.style.display = "block";
+    modal.classList.remove("hidden");
+    modal.style.display = "flex";
     modal.setAttribute("aria-hidden", "false");
-    opacity.style.display = "block";
+    opacity.classList.remove("hidden");
 
     //Empêche le scroll en arrière-plan
     document.body.style.overflow = "hidden";
@@ -29,12 +30,12 @@ function displayModal() {
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
+    const modal = document.querySelector(".modal");
     const opacity = document.getElementById("modal_opacity");
 
-    modal.style.display = "none";
+    modal.classList.add("hidden");
     modal.setAttribute("aria-hidden", "true");
-    opacity.style.display = "none";
+    opacity.classList.add("hidden");
 
     //Retour du scroll de l'arrière-plan
     document.body.style.overflow = "";
@@ -51,8 +52,8 @@ function closeModal() {
 
 // Gestion de tab et escape
 document.addEventListener("keydown", function (event) {
-    const modal = document.getElementById("contact_modal");
-    const visible = modal && modal.style.display === "block";
+    const modal = document.querySelector(".modal");
+    const visible = modal && modal.style.display === "flex";
 
     if (!visible) return;
 

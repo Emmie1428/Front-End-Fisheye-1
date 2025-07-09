@@ -1,3 +1,7 @@
+let mediasTries = [];
+let currentIndex = 0;
+let lightboxVisible = false;
+
 document.addEventListener("DOMContentLoaded", () => {
     const triList = document.querySelector(".options");
     const menuDown = document.getElementById("menu-down");
@@ -12,9 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const triStatus = document.getElementById("triStatus");
     triStatus.textContent = "Tri effectué par popularité";
    
+    //Cache les autres options et affiche le menuDown
     otherOptions.forEach(option => option.classList.add("hidden"));
     menuDown.classList.remove("hidden");
 
+    //Ouverture et fermeture du menu déroulant avec la souris
     currentOption.addEventListener("click", () => {
         const isOpen = !otherOptions[0].classList.contains("hidden");
         
@@ -32,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentOption.setAttribute("aria-expanded", String(!isOpen));
     });     
 
+    //Ouverture et fermeture du menu déroulant avec enter
     currentOption.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
         event.preventDefault(); 
@@ -49,9 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
         menuUp.classList.toggle("hidden", isOpen);
 
         currentOption.setAttribute("aria-expanded", String(!isOpen));
-    }
-});
+        }
+    });
 
+    //Génère le tri selon l'option choisi
     otherOptions.forEach(option => {
         option.addEventListener("click", () => {
         const selectedText = option.textContent;
@@ -62,7 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 triDate(medias);
             } else if (selectedValue === "titre") {
                 triTitle(medias);
-                }
+            }
+
+            mediasTries = [...medias];
 
         document.querySelector(".media_gallery").innerHTML = "";
         displayMedia(medias);
@@ -78,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         option.textContent = oldText;
         option.dataset.value = oldValue;
 
+        //Cache les autres options et le menuUp, réaffiche le menuDown
         otherOptions.forEach(opt => opt.classList.add("hidden"));
         menuDown.classList.remove("hidden");
         menuUp.classList.add("hidden");
@@ -92,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    //Ferme le liste déroulante si on sort avec Tab, garde le focus sur la liste
     triList.addEventListener("focusout", (event) => {
          setTimeout(() => {
         const focusedElement = document.activeElement;

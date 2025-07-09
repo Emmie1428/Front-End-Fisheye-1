@@ -3,10 +3,6 @@
     display: none !important;
 }
 
-#contact_modal {
-    display: none;
-}
-
 /*Style positionnement  de base html*/
 header {
     position: relative;
@@ -31,6 +27,7 @@ header {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    font-family: "DM Sans", sans-serif;
 }
 
 .contact_button {
@@ -45,8 +42,7 @@ header {
 }
 
 .send_button {
-    margin: 26px 0;
-    padding: 0;
+    margin: 25px 0 0;
     place-self: start;
 }
 
@@ -176,28 +172,23 @@ header {
 
 /*Style de la modal de contact*/
 .modal {
+    padding: 35px;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 100%;
-    height: auto;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 35px;
-    margin: auto;
+    width: 100%;
     max-width: 599px;
     max-height: 900px;
     overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-color: #DB8876;
-}
-
-#contact_modal {
+    box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
     position: fixed;
     z-index: 999;
     position-area: center;
-    width: 599px;
+    margin: 0;
 }
 
 #modal_opacity {
@@ -207,16 +198,16 @@ header {
     height: 100%;
     pointer-events: none;
     z-index: 800;
-    display: none;
 }
 
 .modal header {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: space-between;
     z-index: 999;
-    margin-bottom: 15px;
-    padding: 20px 0 0;
+    padding: 0 0 10px 0;
+   
 }
 
 .modal header img {
@@ -226,11 +217,11 @@ header {
 
 .modal header h2,
 .nameContactForm {
-    font-size: 55px;
+    font-size: 63px;
     font-weight: normal;
     text-align: center;
     margin: 0;
-    line-height: 95%;
+    line-height: 98%;
     padding: 0;
 }
 
@@ -245,7 +236,7 @@ header {
 .modal textarea, 
 .modal input {
     color: #312E2E;
-    font-size: 32px;
+    font-size: 36px;
     font-family: "DM Sans", sans-serif;
 }
 
@@ -270,7 +261,7 @@ header {
 }
 
 .modal textarea {
-    height: 150px;
+    height: 170px;
 }
 
 
@@ -332,3 +323,50 @@ header {
   color: black;  
 }
 
+/*Style lightbox */
+.lightbox {
+    display: flex;
+    max-width: 1242px;
+    max-height: 900px;
+    justify-self: anchor-center;
+    overflow: hidden;
+}
+
+.lightbox button {
+    border: none;
+    background-color: white;
+    padding: 0;
+    z-index: 80;
+}
+#lightbox-media img {
+    height: 90%;
+    width: 100%;
+    max-width: 1050px;
+    max-height: 900px;
+}
+
+.lightbox svg {
+    fill: #901C1C;
+}
+
+.closeLightbox {
+ width: 42px;
+ height: 42px;  
+}
+
+.previousLightbox,
+.nextLightbox {
+    width: 48px;
+    height: 30px;
+}
+#lightbox-title {
+    color: #901C1C;
+    font-size: 1.5em;
+    text-align: justify;
+    font-family: "DM Sans", sans-serif;
+}
+
+.closeLightbox {
+    position: absolute;
+    right: 0;
+}

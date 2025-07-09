@@ -91,6 +91,7 @@ async function init() {
 
     await displayData(photographer); 
     triPopularite(medias);
+    mediasTries = [...medias];
     displayMedia(medias);
     totalLikes();
 
