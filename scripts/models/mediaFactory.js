@@ -52,9 +52,18 @@ class imageMedia {
     heart.classList.add("heart");
     heart.setAttribute("aria-label", "likes");
 
-    image.addEventListener("click", () => {
+    //Active l'ouvertue du lighbox avec le click et enter
+    const openLightbox = () => {
         currentIndex = mediasTries.findIndex(m => m.title === this._title);
         displayLightbox(currentIndex);
+        }
+
+    image.addEventListener("click", openLightbox);
+
+    image.addEventListener("keydown", (e) => {
+        if (e.key === "Enter")  {
+        openLightbox ();
+        }
     });
 
     //Incrémentation 1 like au 1er click du coeur et -1 au 2em click
@@ -102,6 +111,7 @@ class videoMedia {
     video.setAttribute("controls", true);
     video.setAttribute("aria-label", this._title);
     video.setAttribute("title", this._title);
+    video.setAttribute("tabindex", "0");
     video.classList.add("video");
 
     //Création div info sous les médias
@@ -125,9 +135,18 @@ class videoMedia {
     heart.classList.add("heart");
     heart.setAttribute("aria-label", "likes");
 
-    video.addEventListener("click", () => {
+    //Active l'ouvertue du lighbox avec le click et enter
+    const openLightbox = () => {
         currentIndex = mediasTries.findIndex(m => m.title === this._title);
         displayLightbox(currentIndex);
+    }
+
+    video.addEventListener("click", openLightbox);
+
+    video.addEventListener("keydown", (e) => {
+        if (e.key === "Enter")  {
+        openLightbox ();
+        }
     });
 
     //Incrémentation 1 like au 1er click du coeur et -1 au 2em click

@@ -83,6 +83,10 @@ async function displayMedia(medias) {
     })
 }
 
+mediasTries.forEach((medias, index) => {
+    
+})
+
 async function init() {
     const photographerId = getPhotographerId();
     const photographer = await getPhotographerProfile(photographerId);

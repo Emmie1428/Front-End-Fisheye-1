@@ -37,18 +37,13 @@ function displayLightbox(index) {
     const header = document.querySelector("header");
     header.setAttribute("aria-hidden", "true");
     header.classList.add("hidden");
+    header.style.overflow = "hidden";
 
     lightbox.classList.remove("hidden");
     lightboxVisible = true;
-}
 
-//Active la navigation via clavier
-document.addEventListener("keydown", (e) => {
-    if (!lightboxVisible) return;
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") showNextMedia();
-    if (e.key === "ArrowLeft") showPreviousMedia();
-});
+    document.body.style.overflow = "hidden";
+}
 
 //Affiche le prochain média avec boucle
 function showNextMedia() {
@@ -75,7 +70,17 @@ function closeLightbox() {
     const header = document.querySelector("header");
     header.setAttribute("aria-hidden", "false");
     header.classList.remove("hidden");
+
+     document.body.style.overflow = "";
 }
+
+//Assigne la navigation via clavier
+document.addEventListener("keydown", (e) => {
+    if (!lightboxVisible) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showNextMedia();
+    if (e.key === "ArrowLeft") showPreviousMedia();
+});
 
 //Active le fonctionnement des keydowns
 document.addEventListener("DOMContentLoaded", () => {
