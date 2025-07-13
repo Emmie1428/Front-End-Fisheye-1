@@ -1,4 +1,6 @@
-let media = [];
+let lightboxVisible = false;
+let currentIndex = [];
+let mediasTries = [];
 
 //Affiche le lightbox
 function displayLightbox(index) {

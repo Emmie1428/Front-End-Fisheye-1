@@ -1,6 +1,4 @@
-let mediasTries = [];
-let currentIndex = 0;
-let lightboxVisible = false;
+/* eslint-disable no-undef */
 
 document.addEventListener("DOMContentLoaded", () => {
     const triList = document.querySelector(".options");
@@ -104,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //Ferme le liste déroulante si on sort avec Tab, garde le focus sur la liste
-    triList.addEventListener("focusout", (event) => {
+    triList.addEventListener("focusout", () => {
          setTimeout(() => {
         const focusedElement = document.activeElement;
         const inList = triList.contains(focusedElement);

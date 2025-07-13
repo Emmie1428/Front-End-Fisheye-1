@@ -1,3 +1,6 @@
+/* eslint-disable quotes */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 //Création mediaFactory pour différencier un vidéo d'une image 
 class MediaFactory {
     constructor(data) {
@@ -10,7 +13,7 @@ class MediaFactory {
         }
     }
 }
-
+ 
 //Création de imageDOM
 class imageMedia {
     constructor (data) {

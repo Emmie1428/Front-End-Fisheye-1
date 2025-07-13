@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+ 
+
 function totalLikes() {
     const allLikes = document.querySelectorAll(".likes"); 
     let total = 0;

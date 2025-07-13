@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 let medias = [];
 
 //Get id du photographe pour cibler leur profile
@@ -19,7 +20,7 @@ async function getPhotographerProfile(photographerId) {
             photographe.id == photographerId );
     return photographer;
     } catch (error) {
-        console.error('Erreur lors de la récupération du photographe:', error);
+        console.error("Erreur lors de la récupération du photographe:", error);
     return null;
     }
 }
@@ -67,7 +68,7 @@ async function getPhotographerMedias(photographerId) {
             media.photographerId == photographerId );
     return medias;
     } catch (error) {
-        console.error('Erreur lors de la récupération des médias:', error);
+        console.error("Erreur lors de la récupération des médias:", error);
     return [];
     }
 }
@@ -82,10 +83,6 @@ async function displayMedia(medias) {
         gallerySection.appendChild(mediaDOM); 
     })
 }
-
-mediasTries.forEach((medias, index) => {
-    
-})
 
 async function init() {
     const photographerId = getPhotographerId();
