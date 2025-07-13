@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-
-
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id, likes, date, title } = data;
 
@@ -76,6 +73,5 @@ function photographerTemplate(data) {
         return article;
     }
 
-    return { name, portrait, city, country, tagline, price, id, date, title, getUserCardDOM }
+    return { name, portrait, city, country, tagline, price, id, date, title, getUserCardDOM };
 }
-

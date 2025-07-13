@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/profile.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -44,7 +44,7 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="listbox">
-        <h3 id="listboxTitle">Trier par</h3>
+        <h2 id="listboxTitle">Trier par</h2>
         <ul aria-describedby="triDescription" class="options" role="listbox" >
           <li role="option" data-value="popularite" aria-selected="true" tabindex="0">
             <span class="triValue">Popularité</span>
@@ -70,20 +70,20 @@
             <h2>Contactez-moi</h2>
             <p class="nameContactForm" aria-label="Nom du photographe"></p>
           </div>
-            <img src="assets/icons/close.svg" onclick="closeModal()"/>
+            <img src="assets/icons/close.svg" alt="Close contact form" id="close-modal" onclick="closeModal()"/>
         </header>
 				<form method="get" action ="" id="contact_form">
 					<div role="document">
 						<label for="prenom">Prénom</label>
-						<input type="text" name="prenom" id="first-focus" class="focusable" value="Prénom"/>
+						<input type="text" name="prenom" id="prenom" class="focusable" value="Prénom"/>
             <label for="nom">Nom</label>
-						<input  type="type" name="nom" id="nom" class="focusable" value="Nom"/>
+						<input  type="text" name="nom" id="nom" class="focusable" value="Nom"/>
             <label for="email">Email</label>
 						<input type="email" name="email" id="email" class="focusable" value="Email"/>
             <label for="message">Votre message</label>
 						<textarea type="text" name="message" id="message" class="focusable" >Tapez votre message ici</textarea>
 					</div>
-          <button type="submit" class="send_button focusable" id="last-focus">Envoyer</button>
+          <button type="submit" class="send_button focusable">Envoyer</button>
 				</form>
 			</div>
 		

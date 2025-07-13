@@ -152,10 +152,12 @@ header {
     justify-content: space-between;
 }
 
+.media_gallery h3,
 .media_gallery p {
     color: #901C1C;
     font-size: 1.5em;
     margin: 0;
+    font-weight: 500;
 }
 
 .likeBlock {
@@ -208,7 +210,6 @@ header {
     justify-content: space-between;
     z-index: 999;
     padding: 0 0 10px 0;
-   
 }
 
 .modal header img {
@@ -241,9 +242,8 @@ header {
     font-family: "DM Sans", sans-serif;
 }
 
-.modal input,
-#message {
-    color: rgba(0, 0, 0, .2);
+.modal .focusable {
+    color: rgba(0, 0, 0, .2); 
 }
 
 .modal div {
@@ -404,13 +404,13 @@ header {
 #lightbox-title {
     color: #901C1C;
     font-size: 1.5em;
-    text-align: justify;
+    text-align: start;
     font-family: "DM Sans", sans-serif;
     height: 20px;
 }
 
 /*Media Queries */
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
   #lightbox-media {
     max-height: 550px;
     }

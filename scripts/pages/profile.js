@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 let medias = [];
 
 //Get id du photographe pour cibler leur profile
@@ -81,7 +80,7 @@ async function displayMedia(medias) {
         const media = new MediaFactory(mediaData);
         const mediaDOM = media.getDOM();
         gallerySection.appendChild(mediaDOM); 
-    })
+    });
 }
 
 async function init() {

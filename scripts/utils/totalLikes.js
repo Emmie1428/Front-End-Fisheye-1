@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
- 
-
+//Calcul le nombre total de likes
 function totalLikes() {
     const allLikes = document.querySelectorAll(".likes"); 
     let total = 0;

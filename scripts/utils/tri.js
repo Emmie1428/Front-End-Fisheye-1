@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 document.addEventListener("DOMContentLoaded", () => {
     const triList = document.querySelector(".options");
     const menuDown = document.getElementById("menu-down");

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 let focusElements = [];
 let firstElement = null;
 let lastElement = null;
