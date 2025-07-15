@@ -98,7 +98,7 @@ body {
 
 .photographer_profile .profileName {
     color:#D3573C;
-    font-size: 4em;
+    font-size: 3.5em;
     margin: 0;
     padding: 0;
     font-weight: 400;
@@ -220,8 +220,8 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 599px;
-    max-height: 700px;
+    max-width: 550px;
+    max-height: 725px;
     height: max-content;
     overflow-y: scroll;
     box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
@@ -256,7 +256,7 @@ body {
 
 .modal header h2,
 .nameContactForm {
-    font-size: 3.5em;
+    font-size: 3em;
     font-weight: normal;
     text-align: center;
     margin: 0;
@@ -275,12 +275,8 @@ body {
 .modal textarea, 
 .modal input {
     color: #312E2E;
-    font-size: 2.25em;
+    font-size: 1.8em;
     font-family: "DM Sans", sans-serif;
-}
-
-.modal .focusable {
-    color: rgba(0, 0, 0, .2); 
 }
 
 .modal div {
@@ -363,12 +359,13 @@ body {
 
 /*Style lightbox */
 .lightbox {
-    max-height: 900px;
+    max-height: 750px;
     max-width: 1000px;
     width: auto;
-    height: fit-content;
+    height: auto;
     place-self: center;
     padding: 2%;
+    place-content: center;
     
 }
 
@@ -389,13 +386,20 @@ body {
     border: none;
     background-color: white;
     cursor: pointer;
+    position: absolute;
 }
 
 #lightbox-media {
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     max-height: 700px;
     height: auto;
+}
+
+.video-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
 
 #lightbox-media img,
@@ -424,6 +428,7 @@ body {
 .nextLightbox {
     padding: 0;
     place-self: center;
+    display: contents;
 }
 
 .closeLightbox svg {
@@ -432,9 +437,8 @@ body {
 }
 
 .closeLightbox {
-    position: absolute;
-    place-self: end;
-    top: 25px;
+    place-self: flex-end;
+    align-self: flex-start;
     padding: 0;
 }
 
@@ -453,33 +457,28 @@ body {
     }
 
     .modal {
-        height: 85%;
+        height: 83%;
         width: 75%;
-    }
-    
-    .modalHeaderText {
-    font-weight: 1em;
-    padding: 0;
-    }
+    }  
 }
 
-@media (min-width: 1024px) and (max-width: 1340px) {
+@media (min-width: 1024px) and (max-width: 1380px) {
     .header {
         padding: 23px 50px 0 !important;
     }
 
     #main {
         margin: 0 50px;
-        max-width: 1024px;
     }
     
     .media_gallery {
-        gap: 40px;
+        gap: 30px;
     }
 
+    .media-card,
     .photo,
     .video {
-        width: 280px;
+        width: 290px;
     }
 
     .priceBlock {

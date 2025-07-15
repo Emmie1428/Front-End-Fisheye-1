@@ -52,12 +52,13 @@ class imageMedia {
     heart.classList.add("heart");
     heart.setAttribute("aria-label", "likes");
 
-    //Active l'ouvertue du lighbox avec le click et enter
+    //Cherche le bon médias à afficher
     const openLightbox = () => {
         currentIndex = mediasTries.findIndex(m => m.title === this._title);
         displayLightbox(currentIndex);
         };
 
+    //Active l'ouvertue du lighbox avec le click et enter
     image.addEventListener("click", openLightbox);
 
     image.addEventListener("keydown", (e) => {
@@ -136,17 +137,26 @@ class videoMedia {
     heart.classList.add("heart");
     heart.setAttribute("aria-label", "likes");
 
-    //Active l'ouvertue du lighbox avec le click et enter
+    //Cherche le bon médias à afficher
     const openLightbox = () => {
-        currentIndex = mediasTries.findIndex(m => m.title === this._title);
-        displayLightbox(currentIndex);
+    currentIndex = mediasTries.findIndex(m => m.title === this._title);
+    displayLightbox(currentIndex);
     };
 
-    video.addEventListener("click", openLightbox);
+    //Contenant pour capter le clic (contourne controls)
+    const videoWrapper = document.createElement("div");
+    videoWrapper.classList.add("video-wrapper");
+    videoWrapper.setAttribute("tabindex", "0");
+    videoWrapper.setAttribute("aria-label", this._title);
 
-    video.addEventListener("keydown", (e) => {
-        if (e.key === "Enter")  {
-        openLightbox ();
+    videoWrapper.appendChild(video);
+
+    //Active l'ouvertue du lighbox avec le click et enter
+    videoWrapper.addEventListener("click", openLightbox);
+
+    videoWrapper.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+        openLightbox();
         }
     });
 
@@ -169,7 +179,7 @@ class videoMedia {
     likeContainer.appendChild(title);
     likeContainer.appendChild(likeBlock);
 
-    mediaCard.appendChild(video);
+    mediaCard.appendChild(videoWrapper);
     mediaCard.appendChild(likeContainer);
 
     return mediaCard;

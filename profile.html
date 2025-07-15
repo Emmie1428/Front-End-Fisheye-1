@@ -40,13 +40,13 @@
     </header>
     <main id="main">
       <div class="photographer_profile">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" aria-label="Contact button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="listbox">
         <h2 id="listboxTitle">Trier par</h2>
         <ul aria-describedby="triDescription" class="options" role="listbox" >
           <li role="option" data-value="popularite" aria-selected="true" tabindex="0">
-            <span class="triValue">Popularité</span>
+            <span class="triValue" aria-label="Popularité">Popularité</span>
             <svg id="menu-down" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
             </svg>
@@ -54,8 +54,8 @@
               <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
             </svg>
           </li>
-          <li role="option" data-value="date" class="hidden" id="borders" tabindex="0">Date</li>
-          <li role="option" data-value="titre" class="hidden" tabindex="0">Titre</li>
+          <li role="option" data-value="date" class="hidden" id="borders" tabindex="0" aria-label="Date">Date</li>
+          <li role="option" data-value="titre" class="hidden" tabindex="0" aria-label="Titre">Titre</li>
         </ul>
         <p id="triDescription" class="sr-only">Sélectionnez un critère de tri</p>
         <p id="triStatus" class="sr-only" aria-live="polite"></p>
@@ -74,13 +74,13 @@
 				<form method="get" action ="" id="contact_form">
 					<div role="document">
 						<label for="prenom">Prénom</label>
-						<input type="text" name="prenom" id="prenom" class="focusable" value="Prénom"/>
+						<input type="text" name="prenom" id="prenom" class="focusable" placeholder="Prénom"/>
             <label for="nom">Nom</label>
-						<input  type="text" name="nom" id="nom" class="focusable" value="Nom"/>
+						<input  type="text" name="nom" id="nom" class="focusable" placeholder="Nom"/>
             <label for="email">Email</label>
-						<input type="email" name="email" id="email" class="focusable" value="Email"/>
+						<input type="email" name="email" id="email" class="focusable" placeholder="Email"/>
             <label for="message">Votre message</label>
-						<textarea type="text" name="message" id="message" class="focusable" >Tapez votre message ici</textarea>
+						<textarea type="text" name="message" id="message" class="focusable" placeholder="Tapez votre message ici"></textarea>
 					</div>
           <button type="submit" class="send_button focusable">Envoyer</button>
 				</form>

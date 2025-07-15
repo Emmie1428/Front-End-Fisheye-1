@@ -27,11 +27,9 @@ async function getPhotographerProfile(photographerId) {
 
 //Affichage des infos du profile
 async function displayData(photographer) {
-    console.log("Photographe à afficher:", photographer);
     const photographerProfile = document.querySelector(".photographer_profile");
     const photographerModel = photographerTemplate(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
-    console.log("DOM généré:", userCardDOM);
    
     const img = userCardDOM.querySelector(".imgProfile");
     const name = userCardDOM.querySelector(".profileName");
