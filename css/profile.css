@@ -3,14 +3,43 @@
     display: none !important;
 }
 
+.sr-only {
+    visibility: hidden;
+}
+
 /*Style positionnement  de base html*/
 header {
     position: relative;
     z-index: 1;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 23px 100px 0;
+}
+
 #main {
     position: absolute;
     z-index: 1;
+    margin: 0 100px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    width: 100%;
+}
+
+.logo {
+    height: 50px;
+}
+
+.logo a {
+    height: 50px;
 }
 
 /*Style des différents bouton*/
@@ -44,6 +73,7 @@ header {
 .send_button {
     margin: 25px 0 0;
     place-self: start;
+    color:white !important;
 }
 
 .send_button p {
@@ -54,7 +84,7 @@ header {
 .photographer_profile {
     background-color: #FAFAFA;
     height: 300px;
-    margin:20px 100px 0 100px;
+    margin:20px 0 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -71,10 +101,18 @@ header {
     font-size: 4em;
     margin: 0;
     padding: 0;
+    font-weight: 400;
 }
 
 .photographer_profile .imgPhotographers {
     display: none;
+}
+
+.photographer_profile img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .photographer_profile h2 {
@@ -130,7 +168,7 @@ header {
 
 /*Style gallerie des médias*/
 .media_gallery {
-    margin: 50px 100px;
+    margin: 50px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 95px;
@@ -175,7 +213,7 @@ header {
 
 /*Style de la modal de contact*/
 .modal {
-    padding: 35px;
+    padding: 20px 35px 35px;
     border-radius: 5px;
     background-color: #DB8876;
     flex-direction: column;
@@ -183,10 +221,9 @@ header {
     justify-content: space-between;
     width: 100%;
     max-width: 599px;
-    max-height: 900px;
-    overflow-x: hidden;
+    max-height: 700px;
+    height: max-content;
     overflow-y: scroll;
-    scrollbar-color: #DB8876;
     box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
     position: fixed;
     z-index: 999;
@@ -219,7 +256,7 @@ header {
 
 .modal header h2,
 .nameContactForm {
-    font-size: 63px;
+    font-size: 3.5em;
     font-weight: normal;
     text-align: center;
     margin: 0;
@@ -238,7 +275,7 @@ header {
 .modal textarea, 
 .modal input {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 2.25em;
     font-family: "DM Sans", sans-serif;
 }
 
@@ -256,13 +293,13 @@ header {
 .modal input, 
 .modal textarea {
     width: 100%;
-    height: 65px;
+    height: 60px;
     border: none;
     border-radius: 5px;
 }
 
 .modal textarea {
-    height: 170px;
+    height: 120px;
 }
 
 
@@ -270,7 +307,7 @@ header {
 .listbox {
     position: relative;
     display: flex;
-    padding: 15px 0 0 100px;
+    padding: 15px 0 0;
 }
 
 #listboxTitle {
@@ -287,7 +324,7 @@ header {
 
 .options {
     position: absolute;
-    left: 180px;
+    left: 80px;
     border-radius: 5px;
     background-color: #901C1C;
     color: white;
@@ -410,8 +447,42 @@ header {
 }
 
 /*Media Queries */
-@media (min-width: 1024px) {
-  #lightbox-media {
-    max-height: 550px;
+@media (max-height: 700px) {
+    #lightbox-media {
+        max-height: 550px;
+    }
+
+    .modal {
+        height: 85%;
+        width: 75%;
+    }
+    
+    .modalHeaderText {
+    font-weight: 1em;
+    padding: 0;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1340px) {
+    .header {
+        padding: 23px 50px 0 !important;
+    }
+
+    #main {
+        margin: 0 50px;
+        max-width: 1024px;
+    }
+    
+    .media_gallery {
+        gap: 40px;
+    }
+
+    .photo,
+    .video {
+        width: 280px;
+    }
+
+    .priceBlock {
+        width: 250px;
     }
 }

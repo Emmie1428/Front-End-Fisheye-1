@@ -1,5 +1,3 @@
-@import url("profile.css");
-
 .sr-only {
     visibility: hidden;
 }
@@ -10,7 +8,7 @@ body {
     width: 100%;
 }
 
-header {
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,9 +22,8 @@ header {
     margin-bottom: 100px;
 }
 
-h1 {
+.header h1 {
     color: #901C1C;
-    margin-right: 100px;
     font-size: 2.25em;
     font-weight: normal;
 }
@@ -99,8 +96,7 @@ h1 {
     font-size: .8em;
 }
 
-.photographer_section article img,
-.photographer_profile img {
+.photographer_section article img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
