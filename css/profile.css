@@ -469,16 +469,20 @@ body {
 
     #main {
         margin: 0 50px;
+        width: 100%;
     }
     
+    .photographer_profile {
+       width: 92.5%;
+    }
     .media_gallery {
-        gap: 30px;
+        gap: 25px;
     }
 
     .media-card,
     .photo,
     .video {
-        width: 290px;
+        width: 325px;
     }
 
     .priceBlock {

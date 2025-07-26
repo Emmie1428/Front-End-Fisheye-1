@@ -6,7 +6,7 @@ function photographerTemplate(data) {
     function getUserCardDOM() {
         const article = document.createElement( "article" );
         article.setAttribute("role", "button");
-        article.setAttribute("tabindex", "0");
+       
 
         //Création url id pour récupérer le photographe dans pages/profile.js
         const link = document.createElement("a");
